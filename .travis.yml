@@ -6,7 +6,7 @@ before_script:
   - mkdir ../build
   - cd ../build
 script:
-  - cmake ../lab6-lab7-lists
+  - cmake ../Lab6-lab7-lists
   - make -j
   - ./test/MP6_7_TESTS
 notifications:
