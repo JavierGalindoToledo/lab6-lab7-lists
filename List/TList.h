@@ -29,7 +29,6 @@ public:
     template <class T1>
     friend istream& operator>> (istream& istr, TListElem<T1> A);
 };
-
 template <class T>
 class TList
 {
@@ -45,14 +44,14 @@ public:
 
     TList<T>& operator =(TList<T>& _v);
 
-    void InsFirst(T d); //Вставка элемента
-    void InsLast(T d); //Вставка элемента
-    void Ins(TListElem<T>* e, T d); //Вставка элемента
-    bool IsFull(void) const; // контроль пустоты
-    bool IsEmpty(void) const; // контроль пустоты
+    void InsFirst(T d); 
+    void InsLast(T d); 
+    void Ins(TListElem<T>* e, T d); 
+    bool IsFull(void) const; 
+    bool IsEmpty(void) const;
 
-    TListElem<T>* GetFirst(); //Получение элемента
-    TListElem<T>* GetLast(); //Получение элемента
+    TListElem<T>* GetFirst(); 
+    TListElem<T>* GetLast(); 
 
     void DelFirst();
     void DelLast();
@@ -64,19 +63,16 @@ public:
     template <class T1>
     friend istream& operator >> (istream& istr, TList<T1>& A);
 };
-
 template<class T1>
 inline ostream& operator<<(ostream& ostr, const TListElem<T1>& A)
 {
     return ostr << A.data;
 }
-
 template<class T1>
 inline istream& operator>>(istream& istr, TListElem<T1> A)
 {
     return istr >> A.data;
 }
-
 template <class T1>
 ostream& operator<< (ostream& ostr, const TList<T1>& A)
 {
@@ -88,7 +84,6 @@ ostream& operator<< (ostream& ostr, const TList<T1>& A)
     }
     return ostr;
 }
-
 template <class T1>
 istream& operator >> (istream& istr, TList<T1>& A) {
     int count;
@@ -100,8 +95,6 @@ istream& operator >> (istream& istr, TList<T1>& A) {
     }
     return istr;
 }
-
-
 template<class T>
 inline TList<T>::TList()
 {
@@ -109,7 +102,6 @@ inline TList<T>::TList()
     end = 0;
     count = 0;
 }
-
 template <class T>
 TList<T>::TList(TList<T>& _v)
 {
@@ -135,10 +127,9 @@ TList<T>::TList(TList<T>& _v)
         }
 
         end = j;
-        i = i->GetNext(); //next?
+        i = i->GetNext();
     }
 }
-
 template <class T>
 TList<T>::~TList()
 {
@@ -159,7 +150,6 @@ TList<T>::~TList()
         count = 0;
     }
 }
-
 template <class T>
 TList<T>& TList<T>::operator =(TList<T>& _v)
 {
@@ -255,26 +245,21 @@ inline bool TList<T>::IsFull(void) const
         return true;
     }
 }
-
 template<class T>
 inline bool TList<T>::IsEmpty(void) const
 {
     return count == 0;
 }
-
-
 template<class T>
 inline TListElem<T>* TList<T>::GetFirst()
 {
     return root;
 }
-
 template<class T>
 inline TListElem<T>* TList<T>::GetLast()
 {
     return end;
 }
-
 template<class T>
 inline void TList<T>::DelFirst()
 {
@@ -283,7 +268,6 @@ inline void TList<T>::DelFirst()
     count--;
     delete i;
 }
-
 template<class T>
 inline void TList<T>::DelLast()
 {
@@ -292,7 +276,6 @@ inline void TList<T>::DelLast()
     count--;
     delete i;
 }
-
 template<class T>
 inline void TList<T>::Del(TListElem<T>* e)
 {
@@ -302,7 +285,6 @@ inline void TList<T>::Del(TListElem<T>* e)
     count--;
     delete e;
 }
-
 template<class T>
 inline int TList<T>::GetCount()
 {
@@ -311,7 +293,6 @@ inline int TList<T>::GetCount()
 
 
 #endif
-
 template<class T>
 inline TListElem<T>::TListElem(T _data)
 {
@@ -320,44 +301,37 @@ inline TListElem<T>::TListElem(T _data)
     prev = 0;
 
 }
-
 template<class T>
 inline TListElem<T>::~TListElem()
 {
     next = 0;
     prev = 0;
 }
-
 template<class T>
 inline T TListElem<T>::GetData()
 {
     return data;
 }
-
 template<class T>
 inline TListElem<T>* TListElem<T>::GetNext()
 {
     return next;
 }
-
 template<class T>
 inline TListElem<T>* TListElem<T>::GetPrev()
 {
     return prev;
 }
-
 template<class T>
 inline void TListElem<T>::SetData(T _data)
 {
     data = _data;
 }
-
 template<class T>
 inline void TListElem<T>::SetNext(TListElem* _next)
 {
     next = _next;
 }
-
 template<class T>
 inline void TListElem<T>::SetPrev(TListElem* _prev)
 {
